@@ -1,0 +1,22 @@
+<%= link_to root_path, class: "back-link" do %>
+  &larr; Tous les decks
+<% end %>
+
+<div class="deck-show">
+  <h1 class="deck-show__title"><%= @deck.title %></h1>
+  <p class="deck-show__description"><%= @deck.description %></p>
+
+  <%= button_to "Commencer", deck_session_path(@deck), method: :post, class: "btn btn--primary btn--full" %>
+
+  <div class="deck-show__questions">
+    <h3>Apercu des questions (<%= @deck.questions_count %>)</h3>
+    <ul>
+      <% @deck.questions.limit(5).each do |question| %>
+        <li><%= question.content %></li>
+      <% end %>
+      <% if @deck.questions_count > 5 %>
+        <li class="deck-show__more">+ <%= @deck.questions_count - 5 %> autres questions...</li>
+      <% end %>
+    </ul>
+  </div>
+</div>

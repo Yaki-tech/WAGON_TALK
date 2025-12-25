@@ -306,6 +306,11 @@ html, body {
   border-bottom: none;
 }
 
+.deck-show__more {
+  color: var(--color-text-light);
+  font-style: italic;
+}
+
 /* ==================== */
 /* Buttons              */
 /* ==================== */
