@@ -1,0 +1,57 @@
+<div class="session">
+  <header class="session__header">
+    <%= link_to root_path, class: "session__deck-title" do %>
+      &larr; <%= @deck.title %>
+    <% end %>
+
+    <% if @question %>
+      <% if @is_favorited %>
+        <% favorite = Favorite.find_by(question_id: @question.id, user_identifier: current_user_identifier) %>
+        <%= button_to favorite_path(favorite), method: :delete, class: "session__favorite", title: "Retirer des favoris" do %>
+          &#9829;
+        <% end %>
+      <% else %>
+        <%= button_to favorites_path, params: { favorite: { question_id: @question.id } }, class: "session__favorite", title: "Ajouter aux favoris" do %>
+          &#9825;
+        <% end %>
+      <% end %>
+    <% end %>
+  </header>
+
+  <div class="session__card">
+    <% if @question %>
+      <p class="session__question"><%= @question.content %></p>
+    <% else %>
+      <p class="session__question">Aucune question disponible</p>
+    <% end %>
+  </div>
+
+  <nav class="session__nav">
+    <%= button_to previous_session_path(@session.session_token),
+        method: :post,
+        class: "session__nav-btn",
+        disabled: @session.first_question?,
+        title: "Question précédente" do %>
+      &larr;
+    <% end %>
+
+    <span class="session__progress"><%= @session.progress %></span>
+
+    <%= button_to shuffle_session_path(@session.session_token),
+        method: :post,
+        class: "session__shuffle",
+        title: "Mélanger les questions" do %>
+      &#8635;
+    <% end %>
+
+    <span class="session__progress"></span>
+
+    <%= button_to next_session_path(@session.session_token),
+        method: :post,
+        class: "session__nav-btn",
+        disabled: @session.last_question?,
+        title: "Question suivante" do %>
+      &rarr;
+    <% end %>
+  </nav>
+</div>

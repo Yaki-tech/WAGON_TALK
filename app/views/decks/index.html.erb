@@ -14,7 +14,7 @@
       <span>WAGON</span><span>TALK</span>
     </div>
     <p class="hero-card__description"><%= hero_deck.description %></p>
-    <%= link_to "Start the conversation", deck_session_path(hero_deck), method: :post, class: "hero-card__cta" %>
+    <%= button_to "Start the conversation", deck_session_path(hero_deck), method: :post, class: "hero-card__cta" %>
   </div>
 <% end %>
 
@@ -24,7 +24,7 @@
 
   <div class="deck-grid">
     <% other_decks.each do |deck| %>
-      <%= link_to deck_session_path(deck), method: :post, class: "deck-card deck-card--#{deck.title.parameterize}" do %>
+      <%= button_to deck_session_path(deck), method: :post, class: "deck-card deck-card--#{deck.title.parameterize}" do %>
         <div class="deck-card__bubble">
           <%= deck.title.upcase %>
         </div>
