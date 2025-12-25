@@ -1,0 +1,31 @@
+<div class="favorites">
+  <header class="favorites__header">
+    <%= link_to root_path, class: "back-link" do %>
+      &larr; Retour aux decks
+    <% end %>
+  </header>
+
+  <h1 class="favorites__title">Mes favoris</h1>
+
+  <% if @favorites.any? %>
+    <div class="favorites__list">
+      <% @favorites.each do |favorite| %>
+        <div class="favorites__item" id="<%= dom_id(favorite) %>">
+          <div class="favorites__content">
+            <p class="favorites__question"><%= favorite.question.content %></p>
+            <span class="favorites__deck"><%= favorite.question.deck.title %></span>
+          </div>
+          <%= button_to favorite_path(favorite), method: :delete, class: "favorites__remove", title: "Retirer des favoris" do %>
+            &times;
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="favorites__empty">
+      <p>Aucune question en favori pour le moment.</p>
+      <p>Clique sur le coeur lors d'une session pour sauvegarder tes questions preferees.</p>
+      <%= link_to "Explorer les decks", root_path, class: "btn btn--primary" %>
+    </div>
+  <% end %>
+</div>

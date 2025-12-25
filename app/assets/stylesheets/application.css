@@ -387,10 +387,15 @@ html, body {
   cursor: pointer;
   padding: 8px;
   transition: transform 0.2s ease;
+  color: var(--color-text-light);
 }
 
 .session__favorite:hover {
   transform: scale(1.2);
+}
+
+.session__favorite--active {
+  color: var(--color-primary);
 }
 
 .session__card {

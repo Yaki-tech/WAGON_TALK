@@ -7,7 +7,7 @@
     <% if @question %>
       <% if @is_favorited %>
         <% favorite = Favorite.find_by(question_id: @question.id, user_identifier: current_user_identifier) %>
-        <%= button_to favorite_path(favorite), method: :delete, class: "session__favorite", title: "Retirer des favoris" do %>
+        <%= button_to favorite_path(favorite), method: :delete, class: "session__favorite session__favorite--active", title: "Retirer des favoris" do %>
           &#9829;
         <% end %>
       <% else %>
