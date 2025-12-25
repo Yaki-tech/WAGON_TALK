@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>WagonTalk</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Wagon Talk</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#E43E3D">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +12,15 @@
   </head>
 
   <body>
-    <%= yield %>
+    <% if notice %>
+      <div class="flash flash--notice"><%= notice %></div>
+    <% end %>
+    <% if alert %>
+      <div class="flash flash--alert"><%= alert %></div>
+    <% end %>
+
+    <main class="container">
+      <%= yield %>
+    </main>
   </body>
 </html>

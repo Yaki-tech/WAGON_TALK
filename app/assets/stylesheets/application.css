@@ -1,15 +1,556 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
  *= require_tree .
  *= require_self
  */
+
+/* ==================== */
+/* CSS Variables        */
+/* ==================== */
+:root {
+  --color-primary: #E43E3D;
+  --color-primary-dark: #c73635;
+  --color-secondary: #3B82F6;
+  --color-love: #E91E63;
+  --color-work: #2196F3;
+  --color-travel: #009688;
+  --color-kids: #FF9800;
+  --color-tech: #9C27B0;
+  --color-deep: #607D8B;
+
+  --color-bg: #F5F5F5;
+  --color-card: #FFFFFF;
+  --color-text: #333333;
+  --color-text-light: #666666;
+  --color-border: #E0E0E0;
+
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+
+  --shadow-card: 0 2px 8px rgba(0,0,0,0.08);
+  --shadow-hover: 0 4px 16px rgba(0,0,0,0.12);
+
+  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* ==================== */
+/* Reset & Base         */
+/* ==================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: var(--font-family);
+  background: var(--color-bg);
+  color: var(--color-text);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ==================== */
+/* Container            */
+/* ==================== */
+.container {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 16px;
+  min-height: 100vh;
+}
+
+/* ==================== */
+/* Flash Messages       */
+/* ==================== */
+.flash {
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 24px;
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-weight: 500;
+  z-index: 1000;
+  animation: slideDown 0.3s ease, fadeOut 0.3s ease 2.7s forwards;
+}
+
+.flash--notice {
+  background: #4CAF50;
+  color: white;
+}
+
+.flash--alert {
+  background: var(--color-primary);
+  color: white;
+}
+
+@keyframes slideDown {
+  from { transform: translateX(-50%) translateY(-20px); opacity: 0; }
+  to { transform: translateX(-50%) translateY(0); opacity: 1; }
+}
+
+@keyframes fadeOut {
+  to { opacity: 0; }
+}
+
+/* ==================== */
+/* Hero Card (Main Deck)*/
+/* ==================== */
+.hero-card {
+  background: var(--color-card);
+  border-radius: var(--radius-lg);
+  padding: 32px 24px;
+  text-align: center;
+  box-shadow: var(--shadow-card);
+  border: 3px solid var(--color-secondary);
+  margin-bottom: 32px;
+}
+
+.hero-card__logo {
+  margin-bottom: 16px;
+}
+
+.hero-card__title {
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+}
+
+.hero-card__title span:first-child {
+  color: var(--color-secondary);
+}
+
+.hero-card__title span:last-child {
+  color: var(--color-primary);
+}
+
+.hero-card__description {
+  color: var(--color-text-light);
+  font-size: 16px;
+  margin-bottom: 24px;
+}
+
+.hero-card__cta {
+  display: inline-block;
+  color: var(--color-secondary);
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 12px 32px;
+  border: 2px solid var(--color-secondary);
+  border-radius: var(--radius-md);
+  transition: all 0.2s ease;
+}
+
+.hero-card__cta:hover {
+  background: var(--color-secondary);
+  color: white;
+}
+
+/* ==================== */
+/* Section Title        */
+/* ==================== */
+.section-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-text-light);
+  margin-bottom: 16px;
+}
+
+/* ==================== */
+/* Deck Grid            */
+/* ==================== */
+.deck-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.deck-card {
+  background: var(--color-card);
+  border-radius: var(--radius-md);
+  padding: 24px 16px;
+  text-align: center;
+  box-shadow: var(--shadow-card);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+}
+
+.deck-card:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+}
+
+.deck-card__bubble {
+  display: inline-block;
+  padding: 8px 16px;
+  border: 3px solid currentColor;
+  border-radius: var(--radius-sm);
+  font-size: 18px;
+  font-weight: 800;
+  text-transform: uppercase;
+  position: relative;
+  margin-bottom: 8px;
+}
+
+.deck-card__bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 12px;
+  width: 12px;
+  height: 12px;
+  border-left: 3px solid currentColor;
+  border-bottom: 3px solid currentColor;
+  background: var(--color-card);
+  transform: rotate(-45deg);
+}
+
+.deck-card__count {
+  font-size: 12px;
+  color: var(--color-text-light);
+  margin-top: 8px;
+}
+
+/* Deck Colors */
+.deck-card--icebreakers { color: var(--color-secondary); }
+.deck-card--tech { color: var(--color-tech); }
+.deck-card--deep { color: var(--color-deep); }
+.deck-card--wagon { color: var(--color-primary); }
+.deck-card--love { color: var(--color-love); }
+.deck-card--work { color: var(--color-work); }
+.deck-card--travel { color: var(--color-travel); }
+.deck-card--kids { color: var(--color-kids); }
+
+/* ==================== */
+/* Deck Show Page       */
+/* ==================== */
+.deck-show {
+  text-align: center;
+  padding-top: 24px;
+}
+
+.deck-show__title {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.deck-show__description {
+  color: var(--color-text-light);
+  margin-bottom: 32px;
+}
+
+.deck-show__questions {
+  background: var(--color-card);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+.deck-show__questions h3 {
+  font-size: 14px;
+  color: var(--color-text-light);
+  margin-bottom: 16px;
+}
+
+.deck-show__questions ul {
+  list-style: none;
+}
+
+.deck-show__questions li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 14px;
+}
+
+.deck-show__questions li:last-child {
+  border-bottom: none;
+}
+
+/* ==================== */
+/* Buttons              */
+/* ==================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 32px;
+  border-radius: var(--radius-md);
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn--primary {
+  background: var(--color-primary);
+  color: white;
+}
+
+.btn--primary:hover {
+  background: var(--color-primary-dark);
+}
+
+.btn--secondary {
+  background: var(--color-secondary);
+  color: white;
+}
+
+.btn--outline {
+  background: transparent;
+  border: 2px solid var(--color-border);
+  color: var(--color-text);
+}
+
+.btn--outline:hover {
+  border-color: var(--color-text);
+}
+
+.btn--full {
+  width: 100%;
+}
+
+.btn--small {
+  padding: 10px 20px;
+  font-size: 14px;
+}
+
+/* ==================== */
+/* Session (Question)   */
+/* ==================== */
+.session {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 32px);
+}
+
+.session__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  margin-bottom: 16px;
+}
+
+.session__deck-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-light);
+}
+
+.session__favorite {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 8px;
+  transition: transform 0.2s ease;
+}
+
+.session__favorite:hover {
+  transform: scale(1.2);
+}
+
+.session__card {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-card);
+  border-radius: var(--radius-lg);
+  padding: 32px 24px;
+  box-shadow: var(--shadow-card);
+  margin-bottom: 24px;
+  min-height: 300px;
+}
+
+.session__question {
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.session__nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 16px;
+}
+
+.session__nav-btn {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--color-card);
+  border: 2px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.session__nav-btn:hover:not(:disabled) {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.session__nav-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.session__progress {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text-light);
+}
+
+.session__shuffle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--color-secondary);
+  color: white;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.session__shuffle:hover {
+  background: #2563EB;
+  transform: rotate(180deg);
+}
+
+/* ==================== */
+/* Favorites Page       */
+/* ==================== */
+.favorites {
+  padding-top: 24px;
+}
+
+.favorites__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.favorites__title {
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.favorites__list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.favorites__item {
+  background: var(--color-card);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  box-shadow: var(--shadow-card);
+}
+
+.favorites__question {
+  flex: 1;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.favorites__deck {
+  font-size: 12px;
+  color: var(--color-text-light);
+  margin-top: 8px;
+}
+
+.favorites__remove {
+  background: none;
+  border: none;
+  color: var(--color-text-light);
+  cursor: pointer;
+  padding: 4px;
+  font-size: 18px;
+}
+
+.favorites__remove:hover {
+  color: var(--color-primary);
+}
+
+.favorites__empty {
+  text-align: center;
+  padding: 48px 24px;
+  color: var(--color-text-light);
+}
+
+/* ==================== */
+/* Back Link            */
+/* ==================== */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-text-light);
+  text-decoration: none;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.back-link:hover {
+  color: var(--color-text);
+}
+
+/* ==================== */
+/* Nav Bar              */
+/* ==================== */
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.nav-bar__logo {
+  font-size: 20px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.nav-bar__logo span:first-child {
+  color: var(--color-secondary);
+}
+
+.nav-bar__logo span:last-child {
+  color: var(--color-primary);
+}
+
+.nav-bar__favorites {
+  color: var(--color-text-light);
+  text-decoration: none;
+  font-size: 24px;
+}
+
+.nav-bar__favorites:hover {
+  color: var(--color-primary);
+}
