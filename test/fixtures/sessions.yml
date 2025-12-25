@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  deck: one
+  shuffled_order: 
+  current_index: 1
+  session_token: MyString
+
+two:
+  deck: two
+  shuffled_order: 
+  current_index: 1
+  session_token: MyString

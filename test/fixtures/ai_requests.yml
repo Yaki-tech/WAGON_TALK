@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  prompt: MyText
+  response: MyText
+  status: MyString
+  deck: one
+  metadata: 
+
+two:
+  prompt: MyText
+  response: MyText
+  status: MyString
+  deck: two
+  metadata: 

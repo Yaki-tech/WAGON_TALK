@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  content: MyText
+  position: 1
+  deck: one
+  source: MyString
+  ai_metadata: 
+
+two:
+  content: MyText
+  position: 1
+  deck: two
+  source: MyString
+  ai_metadata: 
