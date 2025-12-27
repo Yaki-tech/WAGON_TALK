@@ -25,10 +25,7 @@
   <div class="deck-grid">
     <% other_decks.each do |deck| %>
       <%= button_to deck_session_path(deck), method: :post, class: "deck-card deck-card--#{deck.title.parameterize}" do %>
-        <div class="deck-card__bubble">
-          <%= deck.title.upcase %>
-        </div>
-        <div class="deck-card__count"><%= deck.questions_count %> questions</div>
+        <div class="deck-card__bubble"><%= deck.title.upcase %></div>
       <% end %>
     <% end %>
   </div>
