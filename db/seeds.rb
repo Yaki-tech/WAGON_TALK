@@ -10,7 +10,7 @@ puts "Creating decks and questions..."
 # Deck 1: Icebreakers classiques
 icebreakers = Deck.create!(
   title: "Icebreakers",
-  description: "Questions classiques pour briser la glace en début d'événement"
+  description: "Quelques questions pour t'aider à briser la glace"
 )
 
 [
@@ -33,24 +33,23 @@ end
 # Deck 2: Tech Talk
 tech_talk = Deck.create!(
   title: "Tech Talk",
-  description: "Questions pour les communautés tech et développeurs"
+  description: "Questions pour les passionnés de tech et de code"
 )
 
 [
-  "Quel est le bug le plus mémorable que tu aies résolu ?",
-  "Quelle techno as-tu apprise récemment et qui t'a surpris ?",
-  "Si tu devais recommencer ta carrière tech, que ferais-tu différemment ?",
-  "Quel est ton side project dont tu es le plus fier ?",
-  "Tabs ou espaces ? Défends ta position !",
-  "Quelle est la pire codebase sur laquelle tu aies travaillé ?",
-  "Quel conseil donnerais-tu à quelqu'un qui débute en dev ?",
-  "Quelle est la techno que tout le monde adore mais que tu n'aimes pas ?",
-  "Quel est ton setup de dev idéal ?",
-  "Si tu pouvais mass-delete une techno de l'existence, laquelle ?",
-  "Quel est le meilleur investissement que tu aies fait pour ta productivité ?",
-  "Comment gères-tu le syndrome de l'imposteur ?",
-  "Quelle est ta plus grande fierté professionnelle ?",
-  "Remote, hybrid ou bureau ? Pourquoi ?"
+  "Quel est ton langage de programmation préféré et pourquoi ?",
+  "Raconte-nous le bug le plus fou que tu aies jamais résolu",
+  "Quel est ton side project secret ou ton idée d'app ?",
+  "Dark mode ou light mode ? Défends ta position !",
+  "Quel est le meilleur conseil tech que tu aies reçu ?",
+  "Si tu pouvais créer une app pour résoudre un problème, ce serait quoi ?",
+  "Quel développeur ou créateur tech t'inspire le plus ?",
+  "Tabs ou espaces ? Il faut choisir un camp !",
+  "Quelle est ta fonctionnalité préférée dans une app ou un site ?",
+  "Comment imagines-tu la tech dans 10 ans ?",
+  "Quel est ton outil ou extension VS Code indispensable ?",
+  "Si tu pouvais travailler chez n'importe quelle boîte tech, laquelle ?",
+  "Quel est le projet tech dont tu es le plus fier ?"
 ].each_with_index do |content, index|
   tech_talk.questions.create!(content: content, position: index)
 end
@@ -89,7 +88,7 @@ le_wagon = Deck.create!(
   "Quel a été ton moment 'eureka' pendant le bootcamp ?",
   "Si tu devais refaire ton projet final, que changerais-tu ?",
   "Quelle est la feature que tu as codée dont tu es le plus fier ?",
-  "Quel buddy/teammate t'a le plus marqué et pourquoi ?",
+  "Quel buddy t'a le plus marqué et pourquoi ?",
   "Quel est ton meilleur souvenir de la semaine projet ?",
   "Comment le bootcamp a-t-il changé ta façon de penser ?",
   "Quel conseil donnerais-tu à quelqu'un qui commence le batch ?",
@@ -99,6 +98,29 @@ le_wagon = Deck.create!(
   "Si tu pouvais ajouter un cours au programme, ce serait quoi ?"
 ].each_with_index do |content, index|
   le_wagon.questions.create!(content: content, position: index)
+end
+
+# Deck 5: Fun Talk
+fun = Deck.create!(
+  title: "Fun Talk",
+  description: "Questions fun et légères pour s'amuser"
+)
+
+[
+  "Quelle est ta pire blague de papa ?",
+  "Si tu étais un personnage de dessin animé, qui serais-tu ?",
+  "Quel est le truc le plus bizarre que tu aies dans ton frigo ?",
+  "Si tu pouvais avoir un pouvoir inutile, lequel choisirais-tu ?",
+  "Quelle est ta théorie du complot préférée ?",
+  "Si tu devais te battre contre 100 canards ou 1 cheval, que choisirais-tu ?",
+  "Quel est ton guilty pleasure musical ?",
+  "Si tu étais un emoji, lequel serais-tu ?",
+  "Quelle est la chose la plus embarrassante dans ton historique de recherche ?",
+  "Si tu pouvais être sponsorisé par une marque, laquelle ?",
+  "Quel est ton hot take le plus controversé ?",
+  "Si tu devais manger la même chose tous les jours, ce serait quoi ?"
+].each_with_index do |content, index|
+  fun.questions.create!(content: content, position: index)
 end
 
 puts "Seeds completed!"

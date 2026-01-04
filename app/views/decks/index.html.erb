@@ -20,13 +20,30 @@
 
 <% other_decks = @decks.drop(1) %>
 <% if other_decks.any? %>
-  <h2 class="section-title">Other decks</h2>
+  <div class="other-decks-card">
+    <h2 class="other-decks-card__title">Other decks</h2>
 
-  <div class="deck-grid">
-    <% other_decks.each do |deck| %>
-      <%= button_to deck_session_path(deck), method: :post, class: "deck-card deck-card--#{deck.title.parameterize}" do %>
-        <div class="deck-card__bubble"><%= deck.title.upcase %></div>
+    <div class="deck-grid">
+      <% other_decks.each do |deck| %>
+        <%= button_to deck_session_path(deck), method: :post, class: "deck-card deck-card--#{deck.title.parameterize}" do %>
+          <% if deck.title == "Le Wagon Edition" %>
+            <div class="deck-card__line">
+              <span class="deck-card__word deck-card__word--black">Le</span>
+              <span class="deck-card__word deck-card__word--black">Wagon</span>
+            </div>
+            <span class="deck-card__word deck-card__word--red">Edition</span>
+          <% else %>
+            <% title_parts = deck.title.split(' ') %>
+            <% title_parts.each_with_index do |word, index| %>
+              <% if ['Tech', 'Deep', 'Le', 'Wagon', 'Fun'].include?(word) %>
+                <span class="deck-card__word deck-card__word--black"><%= word %></span>
+              <% else %>
+                <span class="deck-card__word deck-card__word--red"><%= word %></span>
+              <% end %>
+            <% end %>
+          <% end %>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
 <% end %>
