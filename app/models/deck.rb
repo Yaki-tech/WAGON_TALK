@@ -12,4 +12,12 @@ class Deck < ApplicationRecord
   def questions_count
     questions.count
   end
+
+  def translated_title
+    I18n.locale == :en && title_en.present? ? title_en : title
+  end
+
+  def translated_description
+    I18n.locale == :en && description_en.present? ? description_en : description
+  end
 end

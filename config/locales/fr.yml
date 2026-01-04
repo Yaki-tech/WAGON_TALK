@@ -1,0 +1,26 @@
+fr:
+  app_name: "WAGON TALK"
+  nav:
+    favorites: "Mes favoris"
+  home:
+    start_conversation: "Commencer à discuter"
+    other_decks: "Autres thèmes"
+  session:
+    no_question: "Aucune question disponible"
+    previous: "Question précédente"
+    next: "Question suivante"
+    shuffle: "Mélanger les questions"
+    add_favorite: "Ajouter aux favoris"
+    remove_favorite: "Retirer des favoris"
+  favorites:
+    title: "Mes favoris"
+    back: "Retour aux decks"
+    empty: "Aucune question en favori pour le moment."
+    empty_description: "Clique sur le coeur lors d'une session pour sauvegarder tes questions preferees."
+    explore: "Explorer les decks"
+    remove: "Retirer des favoris"
+  deck_show:
+    back: "Tous les decks"
+    start: "Commencer"
+    preview: "Apercu des questions"
+    more_questions: "autres questions..."

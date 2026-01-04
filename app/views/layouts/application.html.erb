@@ -23,6 +23,12 @@
       <div class="flash flash--alert"><%= alert %></div>
     <% end %>
 
+    <%= locale_toggle_button(css_class: 'locale-toggle--fixed') %>
+
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+      🌙
+    </button>
+
     <main class="container">
       <%= yield %>
     </main>

@@ -10,4 +10,8 @@ class Question < ApplicationRecord
   def ai_generated?
     source == "ai"
   end
+
+  def translated_content
+    I18n.locale == :en && content_en.present? ? content_en : content
+  end
 end

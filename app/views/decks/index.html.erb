@@ -2,7 +2,7 @@
   <%= link_to root_path, class: "nav-bar__logo" do %>
     <span>WAGON</span><span>TALK</span>
   <% end %>
-  <%= link_to favorites_path, class: "nav-bar__favorites", title: "Mes favoris" do %>
+  <%= link_to favorites_path, class: "nav-bar__favorites", title: t('nav.favorites') do %>
     &#9829;
   <% end %>
 </nav>
@@ -13,15 +13,15 @@
     <div class="hero-card__title">
       <span>WAGON</span><span>TALK</span>
     </div>
-    <p class="hero-card__description"><%= hero_deck.description %></p>
-    <%= button_to "Start the conversation", deck_session_path(hero_deck), method: :post, class: "hero-card__cta" %>
+    <p class="hero-card__description"><%= hero_deck.translated_description %></p>
+    <%= button_to t('home.start_conversation'), deck_session_path(hero_deck), method: :post, class: "hero-card__cta" %>
   </div>
 <% end %>
 
 <% other_decks = @decks.drop(1) %>
 <% if other_decks.any? %>
   <div class="other-decks-card">
-    <h2 class="other-decks-card__title">Other decks</h2>
+    <h2 class="other-decks-card__title"><%= t('home.other_decks') %></h2>
 
     <div class="deck-grid">
       <% other_decks.each do |deck| %>

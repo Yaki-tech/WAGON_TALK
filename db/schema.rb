@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_12_25_142824) do
+ActiveRecord::Schema[7.1].define(version: 2026_01_04_202215) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -32,6 +32,8 @@ ActiveRecord::Schema[7.1].define(version: 2025_12_25_142824) do
     t.string "source", default: "manual", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "title_en"
+    t.text "description_en"
     t.index ["source"], name: "index_decks_on_source"
   end
 
@@ -53,6 +55,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_12_25_142824) do
     t.jsonb "ai_metadata"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "content_en"
     t.index ["deck_id", "position"], name: "index_questions_on_deck_id_and_position"
     t.index ["deck_id"], name: "index_questions_on_deck_id"
   end

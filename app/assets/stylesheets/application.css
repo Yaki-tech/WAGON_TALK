@@ -30,7 +30,7 @@
   --color-travel: #670BFF;
   --color-kids: #5315B8;
 
-  /* Le Wagon Neutrals */
+  /* Le Wagon Neutrals - Light Mode */
   --color-bg: #FCF3EE;
   --color-card: #FFFFFF;
   --color-text: #1B1717;
@@ -48,10 +48,18 @@
   /* Softer shadows */
   --shadow-soft: 0 2px 8px rgba(27, 23, 23, 0.04);
   --shadow-card: 0 4px 20px rgba(27, 23, 23, 0.06);
-  --shadow-hover: 0 8px 30px rgba(27, 23, 23, 0.1);
-  --shadow-lg: 0 16px 40px rgba(27, 23, 23, 0.12);
+}
 
-  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+/* Dark Mode Variables */
+[data-theme="dark"] {
+  --color-bg: #1B1717;
+  --color-card: #2A2626;
+  --color-text: #FCF3EE;
+  --color-text-light: #C4BCBC;
+  --color-text-lighter: #8A8585;
+  --color-border: #3D3838;
+  --shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 /* ==================== */
@@ -152,20 +160,26 @@ body {
 }
 
 .nav-bar__favorites {
-  color: var(--color-text-lighter);
+  color: var(--color-primary);
   text-decoration: none;
   font-size: 24px;
-  transition: all 0.3s ease;
-  padding: 12px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: var(--radius-full);
-  background: var(--color-card);
-  box-shadow: var(--shadow-soft);
+  background: white;
+  border: 2px solid var(--color-primary);
+  box-shadow: 0 4px 16px rgba(230, 15, 5, 0.15);
 }
 
 .nav-bar__favorites:hover {
-  color: var(--color-primary);
   transform: scale(1.1);
-  box-shadow: var(--shadow-card);
+  box-shadow: 0 8px 24px rgba(230, 15, 5, 0.25);
+  background: var(--color-primary);
+  color: white;
 }
 
 /* ==================== */
@@ -835,3 +849,131 @@ button.deck-card--fun-talk:hover {
 .favorites__item:nth-child(2) { animation-delay: 0.1s; }
 .favorites__item:nth-child(3) { animation-delay: 0.15s; }
 .favorites__item:nth-child(4) { animation-delay: 0.2s; }
+
+/* ==================== */
+/* Language & Theme Toggle */
+/* ==================== */
+.locale-toggle {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  background: var(--color-card);
+  border: 2px solid var(--color-border);
+  box-shadow: var(--shadow-card);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-text);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+}
+
+.locale-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 24px rgba(27, 23, 23, 0.15);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.locale-toggle--fixed {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 1000;
+}
+
+.theme-toggle {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-full);
+  background: var(--color-card);
+  border: 2px solid var(--color-border);
+  box-shadow: var(--shadow-card);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1000;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1) rotate(15deg);
+  box-shadow: 0 8px 24px rgba(27, 23, 23, 0.15);
+  border-color: var(--color-primary);
+}
+
+.theme-toggle:active {
+  transform: scale(0.95);
+}
+
+/* Smooth transition for theme change */
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ==================== */
+/* Responsive Design    */
+/* ==================== */
+@media (max-width: 768px) {
+  .deck-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .hero-card {
+    padding: 40px 24px;
+  }
+
+  .hero-card__title {
+    font-size: 48px;
+  }
+
+  .other-decks-card {
+    padding: 24px 20px;
+  }
+
+  .session {
+    padding: 16px 0;
+  }
+
+  .session__card {
+    padding: 32px 24px;
+    min-height: 240px;
+  }
+
+  .session__question {
+    font-size: 22px;
+  }
+
+  .locale-toggle--fixed {
+    bottom: 16px;
+    left: 16px;
+    width: 48px;
+    height: 48px;
+    font-size: 13px;
+  }
+
+  .theme-toggle {
+    bottom: 16px;
+    right: 16px;
+    width: 52px;
+    height: 52px;
+    font-size: 22px;
+  }
+
+  .nav-bar {
+    padding: 12px 16px;
+  }
+
+  .favorites__item {
+    padding: 16px;
+  }
+}

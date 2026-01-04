@@ -22,4 +22,7 @@ Rails.application.routes.draw do
 
   # Favoris
   resources :favorites, only: [:index, :create, :destroy]
+
+  # Locale
+  patch '/locale/:locale', to: 'locales#update', as: :update_locale
 end
