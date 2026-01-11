@@ -86,41 +86,38 @@ if deep_questions
   end
 end
 
-# Edition Spéciale Anniversaire d'Inès
-ines_birthday = Deck.find_by(title: "Edition Spéciale Anniversaire d'Inès")
-if ines_birthday
-  ines_birthday.update!(
-    title_en: "Inès' Special Birthday Edition",
-    description_en: "Fun questions to celebrate Inès' birthday"
+# Wagon Talk
+wagon_talk = Deck.find_by(title: "Wagon Talk")
+if wagon_talk
+  wagon_talk.update!(
+    title_en: "Wagon Talk",
+    description_en: "Fun questions about the Le Wagon universe"
   )
 
   translations = [
-    "What would be Inès' spirit animal?",
-    "If Inès were a party drink, which one would she be?",
-    "If she were a song, which one suits her best?",
-    "Which season represents Inès the best?",
-    "If Inès were a city (or country), which one would it be?",
-    "Which emoji best sums up Inès?",
-    "If Inès were a color, which one and why?",
-    "What's Inès' little quirk that everyone recognizes right away?",
-    "What's her most frequent mood at parties?",
-    "If Inès were a time of day, which one?",
-    "Which everyday object resembles her the most?",
-    "If Inès were a Sunday activity, what would it be?",
-    "What's the typical 'Inès move' that everyone knows?",
-    "If Inès had a superpower, what would it be?",
-    "Which movie or TV show character resembles her the most?",
-    "If Inès were an imaginary creature, which one?",
-    "What would be the title of a movie about Inès' life?",
-    "If Inès won the lottery, what would she do first?",
-    "What word best describes Inès according to you?",
-    "What memory with Inès always makes you smile?",
-    "What quality of Inès makes us love her so much?",
-    "What makes Inès truly unique?",
-    "What fun or sweet message would you like to say to Inès today?"
+    "Tell us about your worst debugging moment that ended with a ridiculous typo",
+    "What's your ideal work setup: noisy café, silent library, or couch?",
+    "Share a funny story that happened to you during the bootcamp",
+    "What's your best pair programming memory?",
+    "If Le Wagon were a Netflix series, what would be its title?",
+    "What was your biggest fear before starting the bootcamp?",
+    "What's the weirdest advice you've been given about code or data?",
+    "If you could add a completely WTF course to the program, what would it be?",
+    "What's your perfect playlist for coding or analyzing data?",
+    "Tell us about your worst technical fail during a demo",
+    "If you had to explain what you do to your grandma, what would you say?",
+    "What's your dream dataset to analyze?",
+    "What's the most WTF data visualization you've ever seen?",
+    "Python or R? Defend your side!",
+    "Tell us about your first 'Eureka!' moment with data or code",
+    "If you could automate anything in your life, what would it be?",
+    "What's the most surprising stat or insight you've discovered?",
+    "Jupyter Notebook: love or nightmare?",
+    "If you were a type of chart, which one would you be and why?",
+    "Describe your Le Wagon experience in one gif"
   ]
 
-  ines_birthday.questions.each_with_index do |question, index|
+  wagon_talk.questions.each_with_index do |question, index|
     question.update!(content_en: translations[index]) if translations[index]
   end
 end

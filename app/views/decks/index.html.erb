@@ -26,15 +26,11 @@
     <div class="deck-grid">
       <% other_decks.each do |deck| %>
         <%= button_to deck_session_path(deck), method: :post, class: "deck-card deck-card--#{deck.title.parameterize}" do %>
-          <% if deck.title == "Edition Spéciale Anniversaire d'Inès" %>
+          <% if deck.title == "Wagon Talk" %>
             <div class="deck-card__line">
-              <span class="deck-card__word deck-card__word--black">Edition</span>
-              <span class="deck-card__word deck-card__word--black">Spéciale</span>
+              <span class="deck-card__word deck-card__word--black">Wagon</span>
             </div>
-            <div class="deck-card__line">
-              <span class="deck-card__word deck-card__word--black">Anniversaire</span>
-            </div>
-            <span class="deck-card__word deck-card__word--red">d'Inès</span>
+            <span class="deck-card__word deck-card__word--red">Talk</span>
           <% else %>
             <% title_parts = deck.title.split(' ') %>
             <% title_parts.each_with_index do |word, index| %>

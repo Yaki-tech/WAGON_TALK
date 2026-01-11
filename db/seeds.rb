@@ -77,38 +77,35 @@ deep_questions = Deck.create!(
   deep_questions.questions.create!(content: content, position: index)
 end
 
-# Deck 4: Edition Spéciale Anniversaire d'Inès
-ines_birthday = Deck.create!(
-  title: "Edition Spéciale Anniversaire d'Inès",
-  description: "Questions fun pour célébrer l'anniversaire d'Inès"
+# Deck 4: Wagon Talk
+wagon_talk = Deck.create!(
+  title: "Wagon Talk",
+  description: "Questions fun sur l'univers Le Wagon"
 )
 
 [
-  "Quel serait l'animal totem d'Inès ?",
-  "Si Inès était une boisson en soirée, laquelle serait-elle ?",
-  "Si elle était une chanson, laquelle lui correspond le plus ?",
-  "Quelle saison représente le mieux Inès ?",
-  "Si Inès était une ville (ou un pays), ce serait lequel ?",
-  "Quel emoji résume le mieux Inès ?",
-  "Si Inès était une couleur, laquelle et pourquoi ?",
-  "Quelle est la petite manie d'Inès qu'on reconnaît tout de suite ?",
-  "Quel est son mood le plus fréquent en soirée ?",
-  "Si Inès était un moment de la journée, lequel ?",
-  "Quel objet du quotidien lui ressemble le plus ?",
-  "Si Inès était une activité du dimanche, ce serait laquelle ?",
-  "Quel est le \"Inès move\" typique que tout le monde connaît ?",
-  "Si Inès avait un super-pouvoir, lequel serait-ce ?",
-  "Quel personnage de film ou de série lui ressemble le plus ?",
-  "Si Inès était une créature imaginaire, laquelle ?",
-  "Quel serait le titre d'un film sur la vie d'Inès ?",
-  "Si Inès gagnait à la loterie, que ferait-elle en premier ?",
-  "Quel mot décrit le mieux Inès selon toi ?",
-  "Quel souvenir avec Inès te fait toujours sourire ?",
-  "Quelle qualité d'Inès fait qu'on l'aime autant ?",
-  "Qu'est-ce qui rend Inès vraiment unique ?",
-  "Quel message fun ou tendre aimerais-tu dire à Inès aujourd'hui ?"
+  "Raconte ton pire moment de debug qui s'est terminé par une faute de frappe ridicule",
+  "Quel est ton setup de travail idéal : café bruyant, bibliothèque silencieuse ou canapé ?",
+  "Raconte une anecdote drôle qui t'est arrivée pendant le bootcamp",
+  "Quel est ton meilleur souvenir de pair programming ?",
+  "Si Le Wagon était une série Netflix, quel serait son titre ?",
+  "Quelle était ta plus grande peur avant de commencer le bootcamp ?",
+  "Quel est le conseil le plus bizarre qu'on t'ait donné sur le code ou la data ?",
+  "Si tu pouvais ajouter un cours complètement WTF au programme, ce serait quoi ?",
+  "Quelle est ta playlist parfaite pour coder ou analyser de la data ?",
+  "Raconte ton pire fail technique en démo",
+  "Si tu devais expliquer ce que tu fais à ta grand-mère, tu dirais quoi ?",
+  "Quel est ton dataset de rêve à analyser ?",
+  "Quelle est la visualisation de données la plus WTF que tu aies vue ?",
+  "Python ou R ? Défends ton camp !",
+  "Raconte ton premier 'Eureka!' moment avec la data ou le code",
+  "Si tu pouvais automatiser n'importe quoi dans ta vie, ce serait quoi ?",
+  "Quelle est la stat ou insight la plus surprenante que tu aies découverte ?",
+  "Jupyter Notebook : amour ou cauchemar ?",
+  "Si tu étais un type de graphique, tu serais lequel et pourquoi ?",
+  "Décris ton expérience Le Wagon en un gif"
 ].each_with_index do |content, index|
-  ines_birthday.questions.create!(content: content, position: index)
+  wagon_talk.questions.create!(content: content, position: index)
 end
 
 # Deck 5: Fun Talk
