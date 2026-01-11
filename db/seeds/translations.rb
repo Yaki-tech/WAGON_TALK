@@ -86,30 +86,41 @@ if deep_questions
   end
 end
 
-# Le Wagon Edition
-le_wagon = Deck.find_by(title: "Le Wagon Edition")
-if le_wagon
-  le_wagon.update!(
-    title_en: "Le Wagon Edition",
-    description_en: "Special questions for the Le Wagon community"
+# Edition Spéciale Anniversaire d'Inès
+ines_birthday = Deck.find_by(title: "Edition Spéciale Anniversaire d'Inès")
+if ines_birthday
+  ines_birthday.update!(
+    title_en: "Inès' Special Birthday Edition",
+    description_en: "Fun questions to celebrate Inès' birthday"
   )
 
   translations = [
-    "Why did you choose to do Le Wagon?",
-    "What was your 'eureka' moment during the bootcamp?",
-    "If you had to redo your final project, what would you change?",
-    "What feature have you coded that you're most proud of?",
-    "Which buddy impacted you the most and why?",
-    "What's your best memory from project week?",
-    "How has the bootcamp changed the way you think?",
-    "What advice would you give to someone starting the batch?",
-    "What surprised you the most about learning to code?",
-    "Where do you see yourself in 2 years thanks to what you learned?",
-    "Which teacher/TA inspired you the most?",
-    "If you could add one course to the program, what would it be?"
+    "What would be Inès' spirit animal?",
+    "If Inès were a party drink, which one would she be?",
+    "If she were a song, which one suits her best?",
+    "Which season represents Inès the best?",
+    "If Inès were a city (or country), which one would it be?",
+    "Which emoji best sums up Inès?",
+    "If Inès were a color, which one and why?",
+    "What's Inès' little quirk that everyone recognizes right away?",
+    "What's her most frequent mood at parties?",
+    "If Inès were a time of day, which one?",
+    "Which everyday object resembles her the most?",
+    "If Inès were a Sunday activity, what would it be?",
+    "What's the typical 'Inès move' that everyone knows?",
+    "If Inès had a superpower, what would it be?",
+    "Which movie or TV show character resembles her the most?",
+    "If Inès were an imaginary creature, which one?",
+    "What would be the title of a movie about Inès' life?",
+    "If Inès won the lottery, what would she do first?",
+    "What word best describes Inès according to you?",
+    "What memory with Inès always makes you smile?",
+    "What quality of Inès makes us love her so much?",
+    "What makes Inès truly unique?",
+    "What fun or sweet message would you like to say to Inès today?"
   ]
 
-  le_wagon.questions.each_with_index do |question, index|
+  ines_birthday.questions.each_with_index do |question, index|
     question.update!(content_en: translations[index]) if translations[index]
   end
 end

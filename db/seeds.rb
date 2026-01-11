@@ -77,27 +77,38 @@ deep_questions = Deck.create!(
   deep_questions.questions.create!(content: content, position: index)
 end
 
-# Deck 4: Le Wagon Edition
-le_wagon = Deck.create!(
-  title: "Le Wagon Edition",
-  description: "Questions spéciales pour la communauté Le Wagon"
+# Deck 4: Edition Spéciale Anniversaire d'Inès
+ines_birthday = Deck.create!(
+  title: "Edition Spéciale Anniversaire d'Inès",
+  description: "Questions fun pour célébrer l'anniversaire d'Inès"
 )
 
 [
-  "Pourquoi as-tu choisi de faire Le Wagon ?",
-  "Quel a été ton moment 'eureka' pendant le bootcamp ?",
-  "Si tu devais refaire ton projet final, que changerais-tu ?",
-  "Quelle est la feature que tu as codée dont tu es le plus fier ?",
-  "Quel buddy t'a le plus marqué et pourquoi ?",
-  "Quel est ton meilleur souvenir de la semaine projet ?",
-  "Comment le bootcamp a-t-il changé ta façon de penser ?",
-  "Quel conseil donnerais-tu à quelqu'un qui commence le batch ?",
-  "Qu'est-ce qui t'a le plus surpris dans l'apprentissage du code ?",
-  "Où te vois-tu dans 2 ans grâce à ce que tu as appris ?",
-  "Quel teacher/TA t'a le plus inspiré ?",
-  "Si tu pouvais ajouter un cours au programme, ce serait quoi ?"
+  "Quel serait l'animal totem d'Inès ?",
+  "Si Inès était une boisson en soirée, laquelle serait-elle ?",
+  "Si elle était une chanson, laquelle lui correspond le plus ?",
+  "Quelle saison représente le mieux Inès ?",
+  "Si Inès était une ville (ou un pays), ce serait lequel ?",
+  "Quel emoji résume le mieux Inès ?",
+  "Si Inès était une couleur, laquelle et pourquoi ?",
+  "Quelle est la petite manie d'Inès qu'on reconnaît tout de suite ?",
+  "Quel est son mood le plus fréquent en soirée ?",
+  "Si Inès était un moment de la journée, lequel ?",
+  "Quel objet du quotidien lui ressemble le plus ?",
+  "Si Inès était une activité du dimanche, ce serait laquelle ?",
+  "Quel est le \"Inès move\" typique que tout le monde connaît ?",
+  "Si Inès avait un super-pouvoir, lequel serait-ce ?",
+  "Quel personnage de film ou de série lui ressemble le plus ?",
+  "Si Inès était une créature imaginaire, laquelle ?",
+  "Quel serait le titre d'un film sur la vie d'Inès ?",
+  "Si Inès gagnait à la loterie, que ferait-elle en premier ?",
+  "Quel mot décrit le mieux Inès selon toi ?",
+  "Quel souvenir avec Inès te fait toujours sourire ?",
+  "Quelle qualité d'Inès fait qu'on l'aime autant ?",
+  "Qu'est-ce qui rend Inès vraiment unique ?",
+  "Quel message fun ou tendre aimerais-tu dire à Inès aujourd'hui ?"
 ].each_with_index do |content, index|
-  le_wagon.questions.create!(content: content, position: index)
+  ines_birthday.questions.create!(content: content, position: index)
 end
 
 # Deck 5: Fun Talk
