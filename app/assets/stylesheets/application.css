@@ -349,14 +349,14 @@ button.deck-card--deep-questions:hover {
   transform: translateY(-3px);
 }
 
-button.deck-card--le-wagon-edition {
-  background: var(--color-primary);
-  box-shadow: 0 4px 16px rgba(230, 15, 5, 0.25);
+button.deck-card--edition-speciale-anniversaire-d-ines {
+  background: #FF1493;
+  box-shadow: 0 4px 16px rgba(255, 20, 147, 0.25);
 }
 
-button.deck-card--le-wagon-edition:hover {
-  background: var(--color-primary-dark);
-  box-shadow: 0 8px 24px rgba(230, 15, 5, 0.35);
+button.deck-card--edition-speciale-anniversaire-d-ines:hover {
+  background: #E6007A;
+  box-shadow: 0 8px 24px rgba(255, 20, 147, 0.35);
   transform: translateY(-3px);
 }
 
